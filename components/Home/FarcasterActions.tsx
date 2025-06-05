@@ -1,5 +1,6 @@
 import { useFrame } from '@/components/farcaster-provider'
 import { APP_URL } from '@/lib/constants'
+import { useMutation } from '@tanstack/react-query'
 
 export function FarcasterActions() {
   const { actions } = useFrame()
@@ -46,7 +47,9 @@ export function FarcasterActions() {
             <button
               type="button"
               className="bg-white text-black rounded-md p-2 text-sm"
-              onClick={() => actions?.signIn({ nonce: '1201' })}
+              onClick={() =>
+                actions?.signIn({ nonce: '1201', acceptAuthAddress: true })
+              }
             >
               signIn
             </button>
